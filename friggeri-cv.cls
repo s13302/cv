@@ -8,7 +8,6 @@
 \ProcessOptions\relax
 \LoadClass{article}
 
-
 %%%%%%%%%%
 % Colors %
 %%%%%%%%%%
@@ -48,7 +47,8 @@
 
 \RequirePackage[quiet]{fontspec}
 \RequirePackage[math-style=TeX,vargreek-shape=unicode]{unicode-math}
-\RequirePackage{microtype}
+
+\RequirePackage[activate={true,nocompatibility},final,factor=1100,stretch=10,shrink=10,expansion=false,verbose=silent]{microtype}
 
 \newfontfamily\bodyfont[]{Helvetica Neue}
 \newfontfamily\thinfont[]{Helvetica Neue UltraLight}
@@ -58,6 +58,15 @@
 \setmainfont[Mapping=tex-text, Color=textcolor]{Helvetica Neue Light}
 
 \setmathfont{XITS Math}
+\RequirePackage{xltxtra}
+
+%%%%%%%%%%
+% Language %
+%%%%%%%%%%
+\RequirePackage{polyglossia}
+\setdefaultlanguage[variant=us]{english}
+
+
 
 %%%%%%%%%%
 % Header %
@@ -175,12 +184,24 @@
 
 \RequirePackage{fontawesome}
 
+\newcommand{\phone}[1]{%
+  \href{tel:#1}{#1}
+}
+
+\newcommand{\website}[1]{%
+  \href{http://#1}{#1}
+}
+
 \newcommand{\email}[1]{%
   \href{mailto:#1}{#1}
 }
 
 \newcommand{\facebook}[1]{%
   \social{https://facebook.com}{\faFacebookSign}{#1}
+}
+
+\newcommand{\twitter}[1]{%
+  \social{https://twitter.com}{\faTwitterSign}{#1}
 }
 
 \newcommand{\github}[1]{%
