@@ -184,6 +184,9 @@
 
 \RequirePackage{fontawesome}
 
+% Add instagram logo to fontawesome
+\expandafter\def\csname faicon@instagram\endcsname           {\symbol{"F16D}}  \def\faInstagramSign           {{\FA\csname faicon@instagram\endcsname}}
+
 \newcommand{\phone}[1]{%
   \href{tel:#1}{#1}
 }
@@ -194,6 +197,10 @@
 
 \newcommand{\email}[1]{%
   \href{mailto:#1}{#1}
+}
+
+\newcommand{\instagram}[1]{%
+  \social{https://instagram.com}{\faInstagramSign}{#1}
 }
 
 \newcommand{\facebook}[1]{%
