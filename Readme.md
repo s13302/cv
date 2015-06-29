@@ -8,6 +8,9 @@ This fork does the following:
 -- So far there are the following social macroes: `\telephone{}`, `\website{}`, `\email{}`, `\instagram{}`, `\facebook{}`, `\twitter{}`, `\github{}`, `\linkedin{}`
 - Removes bibliography stuff
 
+## Sample
+![Sample image of generated PDF file](sample.png)
+
 Original README:
 
 ## About
