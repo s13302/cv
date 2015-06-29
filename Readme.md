@@ -3,6 +3,7 @@
 This fork does the following:
 - Loads the [`fontawesome`](https://www.ctan.org/tex-archive/fonts/fontawesome) LaTeX package to support social icons
 - Loads the [`microtype`](https://www.ctan.org/pkg/microtype) package with options for XeTeX
+- Loads the [`polyglossia`](https://www.ctan.org/pkg/polyglossia) package
 - Adds macroes to make printing of social sites easy, such as `\github{martinbjeldbak}`, which will typeset the GitHub logo from [font-awesome](http://fortawesome.github.io/Font-Awesome/), followed by a vertially centered slash, followed by my GitHub username, all as a clickable entity
 -- So far there are the following social macroes: `\telephone{}`, `\website{}`, `\email{}`, `\instagram{}`, `\facebook{}`, `\twitter{}`, `\github{}`, `\linkedin{}`
 - Removes bibliography stuff
