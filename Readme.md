@@ -1,10 +1,25 @@
-# About
+# Martin's fork of [afriggeri/cv](https://github.com/afriggeri/cv).
+
+This fork does the following:
+- Loads the [`fontawesome`](https://www.ctan.org/tex-archive/fonts/fontawesome) LaTeX package to support social icons
+- Loads the [`microtype`](https://www.ctan.org/pkg/microtype) package with options for XeTeX
+- Loads the [`polyglossia`](https://www.ctan.org/pkg/polyglossia) package
+- Adds macroes to make printing of social sites easy, such as `\github{martinbjeldbak}`, which will typeset the GitHub logo from [font-awesome](http://fortawesome.github.io/Font-Awesome/), followed by a vertially centered slash, followed by my GitHub username, all as a clickable entity
+-- So far there are the following social macroes: `\telephone{}`, `\website{}`, `\email{}`, `\instagram{}`, `\facebook{}`, `\twitter{}`, `\github{}`, `\linkedin{}`
+- Removes bibliography stuff
+
+## Sample
+![Sample image of generated PDF file](sample.png)
+
+Original README:
+
+## About
 Latest version of my CV, typesetted in Helvetica and using colors inspired by Monokai (there is an `print` option which renders in black and white, and reverts the header to dark on light, if printing on paper is needed).
 
 Uses TikZ for the header, XeTeX and fontspec to use Helvetica Neue, biblatex to print my publications and textpos for the aside.
 
 
-# License
+## License
 
 Copyright (C) 2012, Adrien Friggeri
 
