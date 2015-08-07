@@ -185,7 +185,7 @@
 \RequirePackage{fontawesome}
 
 % Add instagram logo to fontawesome
-\expandafter\def\csname faicon@instagram\endcsname           {\symbol{"F16D}}  \def\faInstagramSign           {{\FA\csname faicon@instagram\endcsname}}
+\expandafter\def\csname faicon@instagram\endcsname           {\symbol{"F16D}}  \def\faInstagramSquare {{\FA\csname faicon@instagram\endcsname}}
 
 \newcommand{\phone}[1]{%
   \href{tel:#1}{#1}
@@ -200,23 +200,23 @@
 }
 
 \newcommand{\instagram}[1]{%
-  \social{https://instagram.com}{\faInstagramSign}{#1}
+  \social{https://instagram.com}{\faInstagramSquare}{#1}
 }
 
 \newcommand{\facebook}[1]{%
-  \social{https://facebook.com}{\faFacebookSign}{#1}
+  \social{https://facebook.com}{\faFacebookSquare}{#1}
 }
 
 \newcommand{\twitter}[1]{%
-  \social{https://twitter.com}{\faTwitterSign}{#1}
+  \social{https://twitter.com}{\faTwitterSquare}{#1}
 }
 
 \newcommand{\github}[1]{%
-  \social{https://github.com}{\faGithubSign}{#1}
+  \social{https://github.com}{\faGithubSquare}{#1}
 }
 
 \newcommand{\linkedin}[1]{%
-  \social{https://linkedin.com/in}{\faLinkedinSign}{#1}
+  \social{https://linkedin.com/in}{\faLinkedinSquare}{#1}
 }
 
 \newcommand{\social}[3]{
