@@ -8,6 +8,13 @@
 \ProcessOptions\relax
 \LoadClass{article}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% No Page Break Environment %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{absolutelynopagebreak}
+{\par\nobreak\vfill\penalty0\vfilneg\vtop\bgroup}
+{\par\xdef\tpd{\the\prevdepth}\egroup\prevdepth=\tpd}
+
 %%%%%%%%%%
 % Colors %
 %%%%%%%%%%
@@ -46,23 +53,22 @@
 %%%%%%%%%
 
 \RequirePackage[quiet]{fontspec}
-\RequirePackage[math-style=TeX,vargreek-shape=unicode]{unicode-math}
+\RequirePackage{unicode-math}
 
 \RequirePackage[activate={true,nocompatibility},final,factor=1100,stretch=10,shrink=10,expansion=false,verbose=silent]{microtype}
 
-\newfontfamily\bodyfont[]{Helvetica Neue}
-\newfontfamily\thinfont[]{Helvetica Neue UltraLight}
-\newfontfamily\headingfont[]{Helvetica Neue Condensed Bold}
+\newfontfamily\bodyfont[]{Calibri}
+\newfontfamily\thinfont[]{Calibri Light}
+\newfontfamily\headingfont[]{Calibri Bold}
 
 \defaultfontfeatures{Mapping=tex-text}
-\setmainfont[Mapping=tex-text, Color=textcolor]{Helvetica Neue Light}
+\setmainfont[Mapping=tex-text, Color=textcolor]{Calibri Light}
 
-\setmathfont{XITS Math}
 \RequirePackage{xltxtra}
 
-%%%%%%%%%%
+%%%%%%%%%%%%
 % Language %
-%%%%%%%%%%
+%%%%%%%%%%%%
 \RequirePackage{polyglossia}
 \setdefaultlanguage[variant=us]{english}
 
@@ -116,6 +122,7 @@
     } #1#2#3%
   }%
   \stepcounter{colorCounter}%
+  \ifnum\value{colorCounter}=5\setcounter{colorCounter}{0}\fi
 }
 
 \renewcommand{\section}[1]{
@@ -148,12 +155,16 @@
 }
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
 \newcommand{\entry}[4]{%
-  #1&\parbox[t]{11.8cm}{%
-    \textbf{#2}%
-    \hfill%
-    {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
-    #4\vspace{\parsep}%
+  #1&\parbox[t]{11.2cm}{%
+    \textbf{#2}\\%
+	{\footnotesize\addfontfeature{Color=lightgray} #3}\\%
+	#4\vspace{\parsep}%
   }\\}
+\newcommand{\cert}[2]{%
+  #1&\parbox[t]{11.2cm}{%
+    \textbf{#2}%
+  }\\}
+
 
 
 %%%%%%%%%%%%%%
@@ -168,12 +179,10 @@
   \renewcommand{\section}[1]{
     \par\vspace{\baselineskip}{\Large\headingfont\color{headercolor} ##1}
   }
-  \begin{textblock}{3.6}(1.5, 4.33)
-  \begin{flushright}
+  \begin{textblock}{3.3}(1.5, 4.33)
   \obeycr
 }{%
   \restorecr
-  \end{flushright}
   \end{textblock}
   \let\section\oldsection
 }
@@ -188,7 +197,7 @@
 \expandafter\def\csname faicon@instagram\endcsname           {\symbol{"F16D}}  \def\faInstagramSquare {{\FA\csname faicon@instagram\endcsname}}
 
 \newcommand{\phone}[1]{%
-  \href{tel:#1}{#1}
+  \sociallinkwithoutslash{tel:#1}{\faPhoneSquare}{#1}
 }
 
 \newcommand{\website}[1]{%
@@ -196,6 +205,7 @@
 }
 
 \newcommand{\email}[1]{%
+  %\sociallinkwithoutslash{mailto:#1}{\faAt}{#1}
   \href{mailto:#1}{#1}
 }
 
@@ -215,8 +225,16 @@
   \social{https://github.com}{\faGithubSquare}{#1}
 }
 
-\newcommand{\linkedin}[1]{%
-  \social{https://linkedin.com/in}{\faLinkedinSquare}{#1}
+\newcommand{\linkedin}[2]{%
+  \sociallink{https://linkedin.com/in/#1-#2}{\faLinkedinSquare}{#1}
+}
+
+\newcommand{\sociallink}[3]{%
+  \href{#1}{#2 \raisebox{0.1ex}{\scriptsize/} #3}
+}
+
+\newcommand{\sociallinkwithoutslash}[3]{%
+  \href{#1}{#2 \raisebox{0.1ex}{\scriptsize} #3}
 }
 
 \newcommand{\social}[3]{
