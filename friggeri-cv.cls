@@ -172,6 +172,7 @@
 %%%%%%%%%%%%%%
 
 \RequirePackage[absolute,overlay]{textpos}
+\RequirePackage{pgffor}
 \setlength{\TPHorizModule}{1cm}
 \setlength{\TPVertModule}{1cm}
 \newenvironment{aside}{%
@@ -185,6 +186,47 @@
   \restorecr
   \end{textblock}
   \let\section\oldsection
+}
+
+%%%%%%%%%%%%%%%%%%
+% Side block (2) %
+%%%%%%%%%%%%%%%%%%
+
+\RequirePackage[absolute,overlay]{textpos}
+\RequirePackage{pgffor}
+\setlength{\TPHorizModule}{1cm}
+\setlength{\TPVertModule}{1cm}
+\newenvironment{pside}{%
+	\let\oldsection\section
+	\let\oldsubsection\subsection
+	\renewcommand{\section}[1]{
+		\par\vspace{\baselineskip}{\Large\headingfont\color{headercolor} ##1}
+	}
+	\renewcommand{\subsection}[1]{
+		\par\vspace{\baselineskip}{\large\headingfont\color{headercolor} ##1}
+	}
+	\begin{textblock}{3.3}(1.5, 1.5)
+	\obeycr
+}{%
+	\restorecr
+	\end{textblock}
+	\let\section\oldsection
+	\let\subsection\oldsubsection
+}
+
+\newcommand{\rating}[3]{
+	\textit{#1}\\
+	\foreach \n in {1,...,#2}{
+		\ifnum \n < #3
+			\faStar
+		\else
+			\ifnum \n = #3
+				\faStar
+			\else
+				\faStarO
+			\fi
+		\fi
+	}
 }
 
 %%%%%%%%%%%%%%%%
