@@ -12,8 +12,8 @@
 % No Page Break Environment %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newenvironment{absolutelynopagebreak}
-{\par\nobreak\vfill\penalty0\vfilneg\vtop\bgroup}
-{\par\xdef\tpd{\the\prevdepth}\egroup\prevdepth=\tpd}
+{}
+{}
 
 %%%%%%%%%%
 % Colors %
